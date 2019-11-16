@@ -1,0 +1,108 @@
+<html>
+<head>
+
+<title>lab3 </title>
+<style>
+table{
+    display: inline-block;
+    vertical-align:top; 
+}
+</style>
+<script>
+ 
+   var array=[1,2,3,4,5,6,7,8,9,10];   
+   var odd=0,even=0,sum=0,small,large;
+
+document.write("<table border='3'  bgcolor='lightgreen' align='center'>")
+document.write("<tr><td>numbers </td></tr>")
+for(var i=0;i<array.length;i++)
+{
+    document.write("<tr><td>"+array[i]+" </td></tr>");
+    sum+=array[i];
+}
+document.write("<tr><td>"+sum+" </td></tr>");
+document.write("</table>");
+document.write("<table border='3' bgcolor='green'write align='center'>");
+document.write("<tr><td>even </td></tr>");
+for(var i=0; i<array.length ;i++)
+{
+   if(array[i]%2==0)
+   {
+   document.write("<tr><td>"+array[i]+" </td></tr>");
+   even+=array[i];
+   } 
+}
+document.write("<tr><td>"+even+" </td></tr>");
+document.write("</table>");
+
+document.write("<table border='3' bgcolor='green' align='center'>");
+document.write("<tr><td>odd </td></tr>");
+for(var i=0; i<array.length ;i++)
+{
+   if(array[i]%2!=0)
+   {
+   document.write("<tr><td>"+array[i]+" </td></tr>");
+   odd+=array[i];
+   }
+}
+document.write("<tr><td>"+odd+" </td></tr>");
+document.write("</table>");
+
+
+document.write("<table border='3' bgcolor='lightyellow' align='center'>");
+document.write("<tr><td>reverse numbers</td></tr>");
+for(var i=array.length-1; i>=0 ;i--)
+{
+   document.write("<tr><td>"+array[i]+" </td></tr>"); 
+}
+document.write("</table>");
+
+document.write("<table border='3' bgcolor='lightyellow' align='center'>");
+document.write("<tr><td>smallest</td></tr>");
+for(var i=0; i<array.length-1 ;i++)
+{
+    if(array[i]<array[i+1])
+     small=array[i];
+   
+}
+document.write("<tr><td>"+small+" </td></tr>");
+document.write("</table>");
+
+document.write("<table border='3' bgcolor='green' align='center'>");
+document.write("<tr><td>largest</td></tr>");
+for(var i=0; i>array.length-1 ;i++)
+{
+    if(array[i]>array[i+1])
+     large=array[i];
+  
+}
+document.write("<tr><td>"+large+" </td></tr>");
+document.write("</table>");
+
+    </script>
+</head>
+<body>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

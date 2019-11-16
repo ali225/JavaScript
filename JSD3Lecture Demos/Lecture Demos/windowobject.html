@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        
+        function openchildwindowfun() {
+            //alert('hi');
+            childwindow = window.open("childpage.html", "", "width=300,height=300");
+           // alert(childwindow);
+        }
+        function closechildwindowfun() {
+            childwindow.close();
+        }
+        function scrollchildwindowfun() {
+            childwindow.scrollBy(0, 30);
+        }
+        function scrollchildwindowfun2() {
+            childwindow.scrollBy(0, -30);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Open Child Window" disabled onclick="openchildwindowfun();"/><br/>
+    <input type="button" value="Close Child Window" onclick="closechildwindowfun();" /><br />
+    <input type="button" value="Scroll Child Window" onclick="scrollchildwindowfun();" /><br />
+    <input type="button" value="Scroll Child Reverse" onclick="scrollchildwindowfun2();" /><br />
+</body>
+</html>

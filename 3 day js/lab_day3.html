@@ -1,0 +1,71 @@
+<html<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    
+</head>
+<body>
+        <div>
+            <img src="UP/1.jpg" id="myimg" width="500" height="500" /><br /><br />
+            <input type="button" id='start' value="Start" onclick="startfun();" />
+            <input type="button" value="next" onclick="nextfun();" />
+            <input type="button" value="prev" onclick="prevfun();" />
+            <input type="button" id='stop' value="Stop" onclick="stopfun();" disabled /><br/>
+            
+        </div>
+
+        <style>
+    
+                input[type="button"]
+                {
+                    width: 100px;
+                    padding: 10px;
+                    border: redius 10;
+                    font: bold 15px tahoma;
+                }
+            </style>
+        
+        <script>
+           var myimages = ["UP/1.jpg","UP/2.jpg","UP/3.jpg","UP/4.jpg","UP/5.jpg","UP/6.jpg","UP/7.jpg","UP/8.jpg","UP/9.jpg","UP/10.jpg",]
+         var i =0;
+
+
+         function nextfun()
+         {
+             i++;
+             if(i>=myimages.length) i=0;
+             myimg.src = myimages[i];
+         }
+
+         function prevfun()
+         {
+             i--;
+             if(i<0) i = myimages.length-1;
+             myimg.src = myimages[i];
+         }
+
+         function startfun()
+         {
+             t = setInterval('nextfun()',1000);
+             disablefun(document.getElementById('start'), document.getElementById('stop'));
+         }
+
+         function stopfun()
+         {
+             clearInterval(t);
+             disablefun(document.getElementById('stop'), document.getElementById('start'));
+
+         }
+         
+
+         function disablefun(a,b)
+         {
+            a.setAttribute('disabled', false);
+            b.removeAttribute('disabled', true);
+
+         }
+
+        </script>
+</body>
+</html>

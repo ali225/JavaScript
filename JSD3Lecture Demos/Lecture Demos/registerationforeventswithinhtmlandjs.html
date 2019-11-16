@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        //3
+
+        window.addEventListener('load', doitfirst);
+        function doitfirst() {
+            // get all buttons
+            allbtns = document.getElementsByTagName('input');
+            for (var i = 0; i < allbtns.length; i++) {
+                //allbtns[i].addEventListener('click', myfun);
+                allbtns[i].addEventListener('mousedown', myfun);
+
+            }
+        }
+
+        function myfun(mydata) {
+            console.log(mydata);
+            //console.log(mydata);
+            alert('hi i"m '+mydata.target.value);
+        }
+
+
+
+
+        //2
+        //function MyFun(e) {
+        //    alert("Hi I's "+e.value);
+        //    //alert("hi");
+        //}
+
+
+        //1
+        //function funone() {
+        //    alert("Hi I'm Button One ");
+        //}
+        //function funtwo() {
+        //    alert("Hi I'm Button Two ");
+        //}
+        //function funthree() {
+        //    alert("Hi I'm Button Three ");
+        //}
+        //function funfour() {
+        //    alert("Hi I'm Button Four ");
+        //}
+        //function funfive() {
+        //    alert("Hi I'm Button Five ");
+        //}
+        
+    </script>
+</head>
+<body>
+    <!--<input type="button" onclick="funone();" value="Button One" /><br />
+    <input type="button" onclick="funtwo();" value="Button Two" /><br />
+    <input type="button" onclick="funthree();" value="Button Three" /><br />
+    <input type="button" onclick="funfour();" value="Button Four" /><br />
+    <input type="button" onclick="funfive();" value="Button Five" /><br />-->
+
+
+    <!--<input type="button" onclick="MyFun(this);" value="Button One" /><br />
+    <input type="button" onclick="MyFun(this);" value="Button Two" /><br />
+    <input type="button" onclick="MyFun(this);" value="Button Three" /><br />
+    <input type="button" onclick="MyFun(this);" value="Button Four" /><br />
+    <input type="button" onclick="MyFun(this);" value="Button Five" /><br />-->
+
+    <input type="button" value="Button One" /><br />
+    <input type="button" value="Button Two" /><br />
+    <input type="button" value="Button Three" /><br />
+    <input type="button" value="Button Four" /><br />
+    <input type="button" value="Button Five" /><br />
+
+</body>
+</html>

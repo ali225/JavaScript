@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        // navigator
+        var myobj = {
+            ID: 200,
+            Name: "Nasr",
+            City:"Mansoura"
+        }
+        for (var i in location) {
+            document.write(i + " : " + location[i]+"<br/>");
+        }
+        //location.reload();
+        function ff() {
+            //location.reload();
+            location.replace("http://www.facebook.com");
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Refresh" onclick="ff();"/>
+</body>
+</html>

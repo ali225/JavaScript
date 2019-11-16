@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        div{
+            margin:10px auto;
+            width:700px;
+            text-align:center;
+        }
+        input[type="button"]
+        {
+            width:100px;
+            padding:10px;
+            border-radius:10px;
+            font:bold 15px tahoma;
+        }
+    </style>
+    
+</head>
+<body>
+    <div>
+        <img src="up/1.jpg" id="myimg" width="500" height="500" /><br /><br />
+        <input type="button" value="Start" onclick="startfun();" />
+        <input type="button" value="Next" onclick="nextfun();" />
+        <input type="button" value="Prev" onclick="prevfun();" />
+        <input type="button" value="Stop" onclick="stopfun();" />
+        <input type="button" onclick="printfun()" value="PrintPage"/>
+    </div>
+    <script>
+        // array of images
+        function printfun() {
+            print();
+        }
+        var myimages = ["up/1.jpg", "up/2.jpg", "up/3.jpg", "up/4.jpg", "up/5.jpg", "up/6.jpg"];
+        var i = 0;
+        function nextfun() {
+            i++;
+            if (i >= myimages.length) i = 0;
+            myimg.src = myimages[i];
+        }
+        function prevfun() {
+            i--;
+            if (i <0) i = myimages.length-1;
+            myimg.src = myimages[i];
+        }
+        function startfun()
+        {
+           t= setInterval('nextfun()', 1000);
+        }
+        function stopfun(){
+            clearInterval(t);
+        }
+    </script>
+</body>
+</html>

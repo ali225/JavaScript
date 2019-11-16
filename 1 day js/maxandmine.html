@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+
+ <style>
+
+table{
+
+    display: inline-block;
+    vertical-align:top; 
+    text-align: center;    
+}
+
+</style>
+  <script>
+  	
+ 
+    var myvar =[1,2,3,4,5,6,7,8,9,10];
+
+    document.write("<table border='2' align='center' cellpadding='10' width='150'><tr><th>Value</th></tr>");
+        sum=0;
+       MY_min =0;
+       My_max =0;
+
+        for (var i = 0; i < myvar.length; i++) {
+          sum +=myvar[i];
+          document.write("<tr align='center' bgcolor='lightgreen'><td>"+myvar[i]+"</td></tr>")
+          }
+
+    document.write("<table border='2' align='center' cellpadding='10' width='150'><tr><th>Max</th></tr>");
+
+          for (var i = 0; i < myvar.length; i++) {
+            if (myvar[i] > myvar[i+1])
+              My_max=myvar[i];
+          }
+
+
+                 document.write("<tr align='center' bgcolor='yellow'><td>"+My_max+"</td></tr>")
+
+    document.write("<table border='2' align='center' cellpadding='10' width='150'><tr><th>Min</th></tr>");
+
+
+          for (var i = 0; i < myvar.length; i++) {
+            if (myvar[i] < myvar[i])
+              MY_min=myvar[i];
+          }
+
+            document.write("<tr align='center' bgcolor='lightgreen'><td>"+MY_min+"</td></tr>")
+
+
+        
+
+/*for(var i=0; i>array.length-1 ;i++)
+{
+    if(array[i]>array[i+1])
+     large=array[i];
+  
+}*/
+
+      /*  for (var i = 0; i > myvar.length-1; i++) {
+
+          if ( myvar[i]<myvar[i+1])
+            min= myvar[i];
+          
+        }  */   
+
+    /*   for (var i = 0; i > myvar.length-1; i++) {
+
+          if ( myvar[i]>myvar[i+1])
+            max= myvar[i];
+          
+        }*/
+              //  max[i] = myvar[i];
+         
+             document.write("<table border='2' align='center' cellpadding='10' width='150'><tr><th>Sum</th></tr>");
+
+         document.write("<tr bgcolor='yellow'><td><th>Sum = "+sum+"</th></tr></table>"); 
+  </script> 
+</head>
+<body>
+
+</body>
+</html>

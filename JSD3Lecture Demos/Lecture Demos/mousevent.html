@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        div{
+            width:255px;
+            height:255px;
+            border:2px solid black;
+            padding:10px;     
+
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+
+            // get div
+            mydiv = document.getElementsByTagName('div')[0];
+
+            // register mousemove with div
+            mydiv.addEventListener('mousemove', writecoords);
+            // get p
+            myp = document.getElementsByTagName('p')[0];
+        });
+        function writecoords(mydata) {
+            myp.innerText = "Coords ( " + mydata.clientX + " , " + mydata.clientY + " )";
+            mydiv.style.backgroundColor = "rgb("+mydata.clientX+","+mydata.clientY+","+mydata.clientX+20+")";
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        div{
+            border:2px solid black;
+            padding:10px;
+            margin:10px auto;
+        }
+        #mainwrapper {
+            width: 700px;
+            height: 600px;
+            border: none;
+            text-align: center;
+        }
+        #internalwrapper{
+            width:500px;
+            height:500px;
+        }
+        input[type="button"]{
+            width:100px;
+            padding:10px;
+            margin-top:5px;
+            border-radius:10px;
+            background-color:lightblue;
+            font:bold 15px tahoma;
+            margin-left:10px;
+        }
+    </style>
+    <script>
+        function Student(name,dept,gender,hoppies) {
+            this.Name = name;
+            this.Dept = dept;
+            this.Gender = gender;
+            this.Hoppies = hoppies;
+        }
+
+        var itistudents = [
+            new Student("Ahmed", "System Development", "Male", "Reading,Writting,Swimming,Coding"),
+            new Student("Alaa", "Open Source", "Female", "Swimming,Running"),
+            new Student("Khaled", "E-Learing", "Male", "Coding,Reading"),
+            new Student("Fatma", "Java", "Female", "Reading,Writting,Swimming,Coding,Design"),
+            new Student("Ali", "IOT", "Male", "Writting,Swimming"),
+            new Student("Maha", "MEAN", "Female", "Reading,Writting,Swimming,Coding"),
+        ];
+        var i = 0;
+        window.addEventListener('load', function () {
+            // all buttons
+            // next btn
+            btnnext = document.getElementById('btnnext');
+            btnnext.addEventListener('click', nextfun);
+            btnprev = document.getElementById('btnprev');
+            btnprev.addEventListener('click', prevfun);
+            // prev btn
+
+
+
+            ///get internalwrapper
+            internalwrapper = document.getElementById('internalwrapper');
+
+            targetstudent = itistudents[i];
+            displaystudent(i);
+            // create header 
+            //studentname = document.createElement('h1');
+            //studentname.innerText = targetstudent.Name;
+            //studentname.style.color = "blue";
+            //internalwrapper.appendChild(studentname);
+
+            //// dept 
+
+            //// create p 
+            //studentdept = document.createElement('p');
+            //// set p inner Text [student.dept]
+            //studentdept.innerText = targetstudent.Dept;
+            //// append p with internalwrapper
+            //internalwrapper.appendChild(studentdept);
+
+            //// gender
+            //maleradio = document.createElement('input');
+            //maleradio.setAttribute('type', "radio");
+            //maleradio.setAttribute("name", "Gender");
+            //maleradio.setAttribute("value", targetstudent.Gender);
+
+            //malespan = document.createElement("span");
+            //malespan.innerText = "Male";
+
+
+
+            //femaleradio = document.createElement('input');
+            //femaleradio.setAttribute('type', "radio");
+            //femaleradio.setAttribute("name", "Gender");
+            //femaleradio.setAttribute("value", targetstudent.Gender);
+
+            //femalespan = document.createElement("span");
+            //femalespan.innerText = "Female";
+
+            //if (targetstudent.Gender == "Male")
+            //{
+            //    maleradio.checked = true;
+            //    internalwrapper.style.backgroundColor = "lightcyan";
+            //}
+            //else {
+            //    femaleradio.checked = true;
+            //    internalwrapper.style.backgroundColor = "lightpink";
+            //}
+
+
+            //internalwrapper.appendChild(maleradio);
+            //internalwrapper.appendChild(malespan);
+            //internalwrapper.appendChild(femaleradio);
+            //internalwrapper.appendChild(femalespan);
+
+            //// interests
+            //interestheader = document.createElement('h3');
+            //interestheader.innerText = "INTERESTS";
+            //internalwrapper.appendChild(interestheader);
+
+
+            //studentinterests = targetstudent.Hoppies.split(',');
+            //for (var k = 0; k < studentinterests.length; k++) {
+            //    // create check box
+            //    createdinterest = document.createElement('input');
+            //    createdinterest.setAttribute('type', 'checkbox');
+            //    // create span [innerText => current iterated interestg]
+            //    createdspan = document.createElement('span');
+            //    createdspan.innerText = studentinterests[k];
+            //    // check checked
+            //    createdinterest.checked = true;
+
+            //    // add checkbox
+            //    //add span
+            //    internalwrapper.appendChild(createdinterest);
+            //    internalwrapper.appendChild(createdspan);
+
+            //}
+
+
+
+        });// end of load
+
+        function nextfun() {
+            i++;
+            if (i >= itistudents.length) i = 0;
+            
+            displaystudent(i);
+
+
+        }
+        function displaystudent(index) {
+            targetstudent = itistudents[index];
+            internalwrapper.innerText = "";
+            // create header 
+            studentname = document.createElement('h1');
+            studentname.innerText = targetstudent.Name;
+            studentname.style.color = "blue";
+            internalwrapper.appendChild(studentname);
+
+            // dept 
+
+            // create p 
+            studentdept = document.createElement('p');
+            // set p inner Text [student.dept]
+            studentdept.innerText = targetstudent.Dept;
+            // append p with internalwrapper
+            internalwrapper.appendChild(studentdept);
+
+            // gender
+            maleradio = document.createElement('input');
+            maleradio.setAttribute('type', "radio");
+            maleradio.setAttribute("name", "Gender");
+            maleradio.setAttribute("value", targetstudent.Gender);
+
+            malespan = document.createElement("span");
+            malespan.innerText = "Male";
+
+
+
+            femaleradio = document.createElement('input');
+            femaleradio.setAttribute('type', "radio");
+            femaleradio.setAttribute("name", "Gender");
+            femaleradio.setAttribute("value", targetstudent.Gender);
+
+            femalespan = document.createElement("span");
+            femalespan.innerText = "Female";
+
+            if (targetstudent.Gender == "Male") {
+                maleradio.checked = true;
+                internalwrapper.style.backgroundColor = "lightcyan";
+            }
+            else {
+                femaleradio.checked = true;
+                internalwrapper.style.backgroundColor = "lightpink";
+            }
+
+
+            internalwrapper.appendChild(maleradio);
+            internalwrapper.appendChild(malespan);
+            internalwrapper.appendChild(femaleradio);
+            internalwrapper.appendChild(femalespan);
+
+            // interests
+            interestheader = document.createElement('h3');
+            interestheader.innerText = "INTERESTS";
+            internalwrapper.appendChild(interestheader);
+
+
+            studentinterests = targetstudent.Hoppies.split(',');
+            for (var k = 0; k < studentinterests.length; k++) {
+                // create check box
+                createdinterest = document.createElement('input');
+                createdinterest.setAttribute('type', 'checkbox');
+                // create span [innerText => current iterated interestg]
+                createdspan = document.createElement('span');
+                createdspan.innerText = studentinterests[k];
+                // check checked
+                createdinterest.checked = true;
+
+                // add checkbox
+                //add span
+                internalwrapper.appendChild(createdinterest);
+                internalwrapper.appendChild(createdspan);
+
+            }
+        }
+        function prevfun() {
+            i--;
+            if (i < 0) i = itistudents.length - 1;
+            displaystudent(i);
+        }
+    </script>
+</head>
+<body>
+    <div id="mainwrapper">
+        <div id="internalwrapper">
+
+        </div>
+        <input type="button" value="First" id="btnfirst"/>
+        <input type="button" value="Next" id="btnnext" />
+        <input type="button" value="Prev" id="btnprev" />
+        <input type="button" value="Last" id="btnlast" />
+    </div>
+</body>
+</html>

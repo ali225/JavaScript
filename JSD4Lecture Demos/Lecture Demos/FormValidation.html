@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        table{
+            border:2px solid black;
+            width:580px;
+            margin:10px auto;
+            padding:5px;
+            text-align:left;
+            /*background-color:lightyellow;*/
+        }
+        /*td{
+            border:1px solid black;
+        }*/
+
+        /* td{
+            margin: 2rem;
+        } */
+
+        input[type="text"]{
+            width:480px;
+        }
+        input[type="number"]{
+            width: 5rem;
+            text-align: right;
+        }
+        select[type="number"]{
+            width: 5px;
+            text-align: left;
+        }
+        input[type="submit"],input[type="reset"]{
+            width:100px;
+            border-radius:10px;
+        }
+        span{
+            display:none;
+        }
+        .error{
+            border:2px solid red;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+
+            // get all inputs [text , password]
+            username = document.getElementById('username');
+            username.focus();
+            userpass = document.getElementById('userpass');
+            usermail = document.getElementById('usermail');
+            // get all span [error messages]
+
+            usernamespan = document.getElementById('usernamespan');
+            userpassspan = document.getElementById('userpassspan');
+            useremailspan = document.getElementById('useremailspan');
+
+
+            // register blur event with all inputs [text , password]
+            // user name
+            username.addEventListener('blur', function () {
+
+                // if username is not valid [show usernamespan , focus [username]] 
+                if(!isusernamevalid())
+                {
+                    // show error message
+                    usernamespan.style.display = "block";
+                    username.className = "error";
+                    usernamespan.className = "error";
+                    username.focus();
+                    username.select();
+                } else {
+                    usernamespan.style.display = "none";
+                    username.className = "";
+                    usernamespan.className = "";
+                }
+
+            });// end of usernameblur
+
+            userpass.addEventListener('blur', function () {
+                if(!isuserpassvalid())
+                {
+                    userpassspan.style.display = "block";
+                    userpass.className = "error";
+                    userpassspan.className = "error";
+                    userpass.focus();
+                    userpass.select();
+                } else {
+                    userpassspan.style.display = "none";
+                    userpass.className = "";
+                    userpassspan.className = "";
+                }
+            });// end of userpassblur
+
+
+            usermail.addEventListener('blur', function () {
+
+                if (!isvalidemail()) {
+                    useremailspan.style.display = "block";
+                    usermail.className = "error";
+                    useremailspan.className = "error";
+                    usermail.focus();
+                    usermail.select();
+                } else {
+                    useremailspan.style.display = "none";
+                    usermail.className = "";
+                    useremailspan.className = "";
+                }
+
+            });// emd of email blur
+            //submit event  [form]
+            document.forms[0].addEventListener('submit', function (submitdata) {
+
+                if(!(isvalidemail() && isusernamevalid() && isuserpassvalid()))
+                {
+                    submitdata.preventDefault();
+                    if(!isusernamevalid())
+                    {
+                        usernamespan.style.display = "block";
+                        username.className = "error";
+                        usernamespan.className = "error";
+                        username.focus();
+                        username.select();
+                    }
+
+                    if (!isuserpassvalid()) {
+                        userpassspan.style.display = "block";
+                        userpass.className = "error";
+                        userpassspan.className = "error";
+                        userpass.focus();
+                        userpass.select();
+                    }
+                    if (!isvalidemail()) {
+                        useremailspan.style.display = "block";
+                        usermail.className = "error";
+                        useremailspan.className = "error";
+                        usermail.focus();
+                        usermail.select();
+                    }
+
+                }
+            });//end of submit event
+
+            document.forms[0].addEventListener('reset', function (resetdata) {
+
+                if(!confirm("R U Sure !"))
+                {
+                    resetdata.preventDefault();
+                } 
+
+            });// end of reset
+
+        });//end of load
+
+        function isusernamevalid()
+        {
+            var usernamepattern = /^[a-zA-Z]{6,8}$/;
+            if(username.value.match(usernamepattern))
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        function isuserpassvalid()
+        {
+            var userpasspattern = /^[0-9]{6,10}$/;
+            if(userpass.value.match(userpasspattern))
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        function isvalidemail() {
+            var emailExpr = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (usermail.value.match(emailExpr))
+                return true;
+            else return false;
+        }
+    </script>
+</head>
+<body>
+    <form method="get" action="#">
+        <table>
+            <tr>
+                <td rowspan="2"><label>Name:</label></td>
+                <td><input type="text" id="username"/></td>
+            </tr>
+            <tr>
+                <td><span id="usernamespan">Valid User Name Must Be At Least 6 and Max 8 Letters Only</span></td>
+            </tr>
+            <tr>
+                <td rowspan="2"><label>Conutry</label></td>
+                <td style="text-align: left;">  <select type="select" onchange="return false;">
+                    <option>Egypt</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="text-align: left;width: ]"><label style="margin-right: 1rem;;">Zip:</label><input type="number" id="zipnumber" /></td>
+            </tr>
+            <tr>
+                <td><span id="userpassspan">Valid User Pass Must Be At Least 6 and Max 8 Digits Only</span></td>
+            </tr>
+            <tr>
+                <td rowspan="2"><label>Email:</label></td>
+                <td><input type="text" id="usermail" /></td>
+            </tr>
+            <tr>
+                <td><span id="useremailspan">Valid User Email Must Contains @ And . Characters</span></td>
+            </tr>
+            <tr>
+                    <td colspan="2">
+                        <table style="border:none;">
+                            <tr>
+                                <td style="border:none;"><input type="submit" value="Register" /> </td>
+                                <td style="border:none;"><input type="reset" value="Cancel" /> </td>
+                            </tr>
+                        </table>
+                    </td>
+           </tr>
+        </table>
+    </form>
+</body>
+</html>

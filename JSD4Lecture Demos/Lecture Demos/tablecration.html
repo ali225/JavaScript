@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .table{
+            border:2px solid black;
+            width:500px;
+            padding:10px;
+            margin:10px auto;
+        }
+        td,th{
+            border:2px solid black;
+            padding:10px;
+        }
+        tr:nth-child(odd){
+            background-color:lightyellow;
+        }
+        tr:nth-child(even) {
+            background-color: lightpink;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+
+            // load event get userid , username , mybtn
+            userid = document.getElementById('userid');
+            usernae = document.getElementById('username');
+            // register event click with mybtn
+            mybtn = document.getElementById('mybtn');
+
+            // create table [th represent Serial , th represent Name]
+            createdtable = document.createElement('table');
+            firstrow = document.createElement('tr');
+            firstth = document.createElement('th');
+            firstth.innerText = "Serial";
+            secondth = document.createElement('th');
+            secondth.innerText = "Name";
+            firstrow.appendChild(firstth);
+            firstrow.appendChild(secondth);
+            // append first row with table
+            createdtable.appendChild(firstrow);
+
+
+            // append table with body
+            //document.body.appendChild(createdtable);
+            createdtable.className = "table";
+            document.body.appendChild(createdtable);
+            // event handeler of mybtn [create row [td [userid] , td[username]]]
+            mybtn.addEventListener('click', addrowfun);
+            // append two td with created row 
+            // append row with table
+
+
+        });
+        function addrowfun() {
+            // create row
+            newrow = document.createElement('tr');
+            // create two td 
+            // first td [userid]
+            firsttd = document.createElement('td');
+            firsttd.innerText = userid.value;
+            // second td [user name]
+            secondtd = document.createElement('td');
+            secondtd.innerText = username.value;
+            //add two td with created row
+            newrow.appendChild(firsttd);
+            newrow.appendChild(secondtd);
+            // append created row with table
+            createdtable.appendChild(newrow);
+        }
+    </script>
+</head>
+<body>
+    <label>User ID</label><input type="text" id="userid"/><br/>
+    <label>User Name</label><input type="text" id="username"/><br/>
+    <input type="button" value="Add Row" id="mybtn"/>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        window.addEventListener('load', function () {
+
+
+            // mytxt
+            mytxt = document.getElementById('mytxt');
+            //mybtn 
+            mybtn = document.getElementById('mybtn');
+
+            //register event click with my btn 
+            mybtn.addEventListener('click', addselect);
+            myselect = document.createElement('select');
+
+        });//end of load
+
+
+        function addselect() {
+            // create select
+            console.log(myselect);
+            //create option
+            myoption = document.createElement('option');
+            myoption.innerText = mytxt.value;
+            myoption.setAttribute("value", "optone");
+            console.log(myoption);
+
+            myselect.appendChild(myoption);
+
+            console.log(myselect);// <select><option value="optone">nasr</option></select>
+
+
+            document.body.appendChild(myselect);
+
+
+            //set inner text for option with vaue of mytext
+            //add option with select
+            //add select with body
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <input type="text" id="mytxt"/>
+    <input type="button" value="Add" id="mybtn"/>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        div{
+            border:2px solid black;
+            margin:10px auto;
+            padding:10px;    
+        }
+        #mainwrapper{
+            width:700px;
+            height:600px;
+            text-align:center;
+        }
+        #internalwrapper{
+            width:500px;
+            height:500px;
+        }
+
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            // get mainwrapper
+            mainwrapper = document.getElementById('mainwrapper');
+            // get mainwrapperp
+            mainwrapperp = document.getElementById('mainwrapperp');
+            // get internalwrapper
+            internalwrapper = document.getElementById('internalwrapper');
+            // get internalwrapperp
+            internalwrapperp = document.getElementById('internalwrapperp');
+            mainwrapper.addEventListener('mousemove', mainwrapperfun);
+            internalwrapper.addEventListener('mousemove', internalwrapperfun);
+
+
+        });//end of load
+
+
+        function mainwrapperfun(maindata) {
+            // get X , Y 
+            // write X , Y with Mainwrapperp
+            mainwrapperp.innerText = maindata.clientX + " : " + maindata.clientY;
+        }
+        function internalwrapperfun(internaldata) {
+            // get X , Y 
+            // write X , Y with internalwrapperp
+            internalwrapperp.innerText = internaldata.clientX + " : " + internaldata.clientY;
+            internaldata.cancelBubble = true;
+        }
+
+    </script>
+</head>
+<body>
+    <div id="mainwrapper">
+        <p id="mainwrapperp"></p>
+        <div id="internalwrapper">
+            <p id="internalwrapperp"></p>
+        </div>
+    </div>
+</body>
+</html>

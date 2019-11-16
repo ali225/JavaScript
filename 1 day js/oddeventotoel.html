@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+  <script>
+    
+ 
+    var myvar =[1,2,3,4,5,6,7,8,9,10];
+
+    document.write("<table border='2' cellpadding='10' width='150'><tr><th>Value</th></tr>");
+   document.write("<table border='2' align='center' gcolor='lightgreen cellpadding='10' width='150'><tr><th>odd</th></tr>");
+   document.write("<table border='2 align='center'  gcolor='lightgreen cellpadding='10' width='150'><tr><th>even</th></tr>");
+
+
+        sum=0;
+        for (var i = 0; i < myvar.length; i++) {
+         
+          if ( i % 2 == 0 )
+          {
+            odd = myvar[i];
+        }else {
+              even = myvar[i];
+        }
+         sum +=myvar[i];
+        }
+                  document.write("<tr align='center' bgcolor='yellow'><td>"+odd[i]+"</td></tr>")
+
+         document.write("<tr><th>Sum = "+sum+"</th></tr></table>"); 
+  </script> 
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        //setInterval('myfun()', 2000);
+        //function myfun()
+        //{
+        //    alert("hi");
+        //}
+
+
+        
+        function displaytime() {
+            // get date object
+            var mydate = new Date();
+            // to time
+            var mytime = mydate.toLocaleTimeString();
+            // set time document.title
+            document.title = mytime;
+            document.getElementById('mytxt').value = mytime;
+        }
+        function starttimerfun()
+        {
+            t=setInterval('displaytime()', 1000);
+        }
+        function stoptimerfun() {
+            clearInterval(t);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Start" onclick="starttimerfun();"/><br/>
+    <input type="button" value="Stop" onclick="stoptimerfun();" /><br />
+    <input type="text" id="mytxt"/>
+</body>
+</html>

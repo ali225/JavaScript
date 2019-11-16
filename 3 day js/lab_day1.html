@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script>
+		
+		//setInterval('displaytime()', 1000);
+
+		function displaytime()
+		{
+			var mydat = new Date();
+
+			var mytime = mydat.toLocaleTimeString();
+
+			//document.title = mytime;
+			document.getElementById('mytxt').value =mytime;
+		}
+
+		function starttimerfun()
+		{
+			t = setInterval('displaytime()',1000);
+		}
+
+		function stoptimerfun(){
+			clearInterval(t);
+		}
+
+
+	</script>
+</head>
+<body>
+	<input type="button" value="Start" onclick="starttimerfun();"/><br/>
+	<input type="button" value="stop"  onclick="stoptimerfun();"/><br/>
+	<input type="text" id="mytxt"/>
+</body>
+</html>
+
+

@@ -1,0 +1,138 @@
+<html>
+<head>
+
+<title>lab3 </title>
+<style>
+
+table{
+
+    display: inline-block;
+    vertical-align:top; 
+    text-align: center;    
+}
+</style>
+<script>
+ 
+   var array=[1,2,3,4,5,6,7,8,9,10];   
+   var odd=0,even=0,sum=0,small,large;
+
+/************** the Table  sum total number *********************/
+document.write("<table border='3'  bgcolor='lightgreen'>")
+document.write("<tr bgcolor='yellow' ><td>Numbers</td></tr>")
+
+// for all item and sum all array 
+for(var i=0;i<array.length;i++)
+{
+    document.write("<tr><td>"+array[i]+" </td></tr>");
+    sum+=array[i];
+}
+
+// print the sum in the table 
+document.write("<tr><td>"+sum+" </td></tr>");
+
+
+//document.write("</table>");
+
+var evennumbers = array.filter(function (myvalue) { return myvalue % 2 == 0; });
+
+document.write("<table border='3' bgcolor='green'write>");
+document.write("<tr bgcolor='yellow' ><td>Even</td></tr>");
+for(var i=0; i<evennumbers.length ;i++)
+{
+  /* if(array[i]%2==0)
+   {*/
+   document.write("<tr><td>"+evennumbers[i]+" </td></tr>");
+/*   even+=array[i];
+   } */
+}
+/*document.write("<tr><td>"+even+" </td></tr>");
+*/
+//document.write("</table>");
+
+var oddnumbers = array.filter(function (myvalue) { return myvalue % 2 != 0; });
+
+
+document.write("<table border='3' bgcolor='yellow' align='center'>");
+document.write("<tr bgcolor='yellow'><td>odd </td></tr>");
+for(var i=0; i<oddnumbers.length ;i++)
+{/*
+   if(array[i]%2!=0)
+   {*/
+   document.write("<tr><td>"+oddnumbers[i]+" </td></tr>");
+   
+/*   odd+=array[i];
+   }
+*/}
+/*document.write("<tr><td>"+odd+" </td></tr>");
+*/
+//document.write("</table>");
+
+
+document.write("<table border='3' bgcolor='lightyellow' align='center'>");
+document.write("<tr bgcolor='yellow'><td>Reverse Numbers</td></tr>");
+
+var reve = array.reverse();
+
+for (var i = 0; i < reve.length; i++) 
+{
+   document.write("<tr><td>"+reve[i]+" </td></tr>"); 
+}
+//document.write("</table>");
+
+ 
+document.write("<table border='3' bgcolor='lightyellow' align='center'>");
+document.write("<tr bgcolor='yellow' ><td>Smallest</td></tr>");
+
+   var small= Math.min.apply(Math,array);
+
+/*for(var i=0; i<array.length-1 ;i++)
+{
+    if(array[i]<array[i+1])
+     small=array[i];
+   
+}*/
+document.write("<tr><td>"+small+" </td></tr>");
+//document.write("</table>");
+
+document.write("<table border='3' bgcolor='green' align='center'>");
+document.write("<tr bgcolor='yellow' ><td>Largest</td></tr>");
+
+
+   var large= Math.max.apply(Math,array);
+/*for(var i=0; i>array.length-1 ;i++)
+{
+    if(array[i]>array[i+1])
+     large=array[i];
+  
+}*/
+document.write("<tr><td>"+large+" </td></tr>");
+//document.write("</table>");
+
+    </script>
+
+</head>
+<body>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

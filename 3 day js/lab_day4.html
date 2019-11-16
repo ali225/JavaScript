@@ -1,0 +1,32 @@
+<html>
+<head>
+
+<title>lab_day_4</title>
+<script>
+ 
+ window.addEventListener('load',fun);
+ function fun()
+ {
+     allbutton=document.getElementsByTagName('input');
+     for(var i=0;i<allbutton.length;i++)
+     {
+         allbutton[i].addEventListener('click',newfun);
+     }
+ }
+ function newfun(mydata)
+ {
+     alert('hi '+mydata.target.value);
+
+ }
+    </script>
+</head>
+<body>
+
+  <input type="button" value="Button 1"/><br/>
+  <input type="button" value="Button 2"/><br/>
+  <input type="button" value="Button 3"/><br/>
+  <input type="button" value="Button 4"/><br/>
+  <input type="button" value="Button 5"/><br/>
+
+</body>
+</html>
